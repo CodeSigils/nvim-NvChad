@@ -10,7 +10,6 @@ local servers = {
   "cssls",
   "marksman",
   "bashls",
-  "prettierd",
 }
 
 local nvlsp = require "nvchad.configs.lspconfig"
