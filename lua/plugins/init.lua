@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -13,13 +13,23 @@ return {
     end,
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufWritePre", "BufNewFile" },
+    opts = {
+      build = ":TSUpdate",
+      auto_install = true,
+      ensure_installed = {
+        "bash",
+        "css",
+        "html",
+        "lua",
+        "markdown",
+        "python",
+        "vimdoc",
+        "vim",
+        "yaml",
+      },
+    },
+  },
 }
