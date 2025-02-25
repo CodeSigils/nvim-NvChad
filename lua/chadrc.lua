@@ -3,10 +3,11 @@
 -- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
+---@class ChadrcConfig
 local M = {}
 
 M.base46 = {
-  theme = "tokyodark",
+  theme = "default-dark",
 
   hl_override = {
     Comment = { italic = true },
