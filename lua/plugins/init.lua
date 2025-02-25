@@ -1,35 +1,26 @@
 return {
+  -- Format on save
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre",
     opts = require "configs.conform",
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
+  -- LSP
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
     end,
   },
-
+  -- Install packages using Mason
+  {
+    "williamboman/mason.nvim",
+    opts = require "configs.mason",
+  },
+  -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufWritePre", "BufNewFile" },
-    opts = {
-      build = ":TSUpdate",
-      auto_install = true,
-      ensure_installed = {
-        "bash",
-        "css",
-        "html",
-        "lua",
-        "markdown",
-        "python",
-        "vimdoc",
-        "vim",
-        "yaml",
-      },
-    },
+    opts = require "configs.treesitter",
   },
 }
