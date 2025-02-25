@@ -12,15 +12,18 @@ return {
       require "configs.lspconfig"
     end,
   },
-  -- Install packages using Mason
-  {
-    "williamboman/mason.nvim",
-    opts = require "configs.mason",
-  },
-  -- Treesitter
+  -- Install extra packages using Mason from configs
+  -- This does not anymore. Configure 'configs/lspconfig' instead
+  -- {
+  --   "williamboman/mason.nvim",
+  --   opts = require "configs.mason",
+  -- },
+  -- Treesitter from configs
   {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufWritePre", "BufNewFile" },
-    opts = require "configs.treesitter",
+    config = function()
+      require "configs.treesitter"
+    end,
   },
 }
